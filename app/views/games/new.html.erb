@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>New Game</h1>
+  <div class="list">
+    <ul class="letters">
+      <li><%= @letters[0] %></li>
+      <li><%= @letters[1] %></li>
+      <li><%= @letters[2] %></li>
+      <li><%= @letters[3] %></li>
+      <li><%= @letters[4] %></li>
+      <li><%= @letters[5] %></li>
+      <li><%= @letters[6] %></li>
+      <li><%= @letters[7] %></li>
+      <li><%= @letters[8] %></li>
+      <li><%= @letters[9] %></li>
+    </ul>
+  </div>
+  <div class="choice">
+    <p>What's your choice?</p>
+    <form action="/score" method="POST" data-turbo="false">
+      <div class="d-flex" style="width: 50%">
+        <input type="text" class="form-control" name="word" style="width: 65%; margin-right: 25px">
+        <input type="submit" class="btn btn-primary" value="Let's try 🔥" style="width: 30%">
+      </div>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :letters, @letters %>
+    </form>
+  </div>
+  <%= link_to 'Reload', '/new' %>
+</div>
